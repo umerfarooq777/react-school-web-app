@@ -1,0 +1,10 @@
+figcaption {
+  position: relative;
+  bottom: 7rem;
+  margin-left: 8rem;
+  font-size: large;
+  color: greenyellow;
+}
+#backgroundImage {
+  width: 100%;
+}
