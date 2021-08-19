@@ -1,0 +1,2 @@
+Separated codes into components.
+Transferred Nav into Navigation comp.
