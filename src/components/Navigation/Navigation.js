@@ -1,39 +1,61 @@
 import React from "react";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
+import { MenuItem } from "@material-ui/core";
+import './Navigation.css'
 
 const Navigation = () => {
   return (
-    <nav>
-      <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Escuela De Sto Rosario</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="./components/AdminLogin.js">Home</Nav.Link>
-              <Nav.Link href="#pricing">About Us</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link href="./web_pages/contactus.html">Contact Us</Nav.Link>
-              <NavDropdown title="ESR Portal" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
-                  Admin Login
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Application ID
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Admission Form
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                {/* <NavDropdown.Item href="#action/3.4">
-                    Separated link
-                  </NavDropdown.Item> */}
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </nav>
+    <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className='nav-links'>
+      <Container fluid>
+        <Navbar.Brand>
+          <NavLink to='/'>
+            <font>Escuela De Sto Rosario</font>
+            <font>ESR</font>
+          </NavLink>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <MenuItem>
+              <NavLink to='/'>Home</NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink to='/about'>About us</NavLink>
+            </MenuItem>
+
+            <NavDropdown title="Programs" id="collasible-nav-dropdown">
+            <MenuItem className='nav-dropdown'>
+                <NavLink to='/pre-school'>Pre-School</NavLink>
+              </MenuItem>
+              <MenuItem className='nav-dropdown'>
+                <NavLink to='/grade-school'>Grade School</NavLink>
+              </MenuItem>
+              <MenuItem className='nav-dropdown'>
+                <NavLink to='/junior-high-school'>Junior High School</NavLink>
+              </MenuItem>
+              <MenuItem className='nav-dropdown'>
+                <NavLink to='/senior-high-school'>Senior High School</NavLink>
+              </MenuItem>
+            </NavDropdown>
+          </Nav>
+
+          <Nav>
+            <MenuItem>
+              <NavLink to='/contact'>Contact-us</NavLink>
+            </MenuItem>
+            <NavDropdown title="ESR Portal" id="collasible-nav-dropdown">
+              <MenuItem className='nav-dropdown'>
+                <NavLink to='/application-id'>Student Portal</NavLink>
+              </MenuItem>
+              <MenuItem className='nav-dropdown'>
+                <NavLink to='/admission'>Admission</NavLink>
+              </MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

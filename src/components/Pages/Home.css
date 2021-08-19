@@ -1,0 +1,41 @@
+.home .carousel {
+    margin-bottom: 50px;
+}
+
+.home .carousel-inner {
+    background-color: black;
+}
+
+.home .carousel-item {
+    height: 300px;
+}
+
+.home .carousel-item img {
+    background-size: cover;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 300px;
+}
+
+/* Fix for flickering carousel */
+.carousel-item-next {
+    transition: transform 0s ease-in-out;
+}
+
+.carousel-item-prev {
+    transition: transform 0s ease-in-out;
+}
+
+.carousel-item-left {
+    transform: translateX(-100%);
+}
+
+.carousel-item-right {
+    transform: translateX(100%);
+}
+
+/* End of fix */

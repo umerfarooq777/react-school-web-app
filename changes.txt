@@ -1,0 +1,3 @@
+Separated codes into components.
+Transferred Nav into Navigation comp.
+added messenger plugin(needs to be hosted live)
