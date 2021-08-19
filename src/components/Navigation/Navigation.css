@@ -1,0 +1,37 @@
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+.nav-links {
+    position: relative;
+    z-index: 900;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.nav-links a {
+    color: white;
+}
+
+.nav-dropdown a {
+    color: black !important
+}
+
+font:last-child {
+    display: none;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+@media screen and (max-width:390px) {
+    font:first-child {
+        display: none;
+    }
+    
+    font:last-child {
+        display: block;
+    }
+}
