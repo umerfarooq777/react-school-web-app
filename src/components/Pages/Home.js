@@ -4,43 +4,35 @@ import './Home.css';
 
 const Home = () => {
   return (
-    <div>
-      <Carousel>
+    <div className='home'>
+      <Carousel nextLabel="" prevLabel="">
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="w-100"
             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="w-100"
             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
             alt="Second slide"
           />
-
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        
+
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="w-100"
             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
             alt="Third slide"
           />
-
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -50,7 +42,7 @@ const Home = () => {
           <h5>FUTURE-READY LEARNING</h5>
         </Row>
         <Row>
-          <h1>Be an Sto. Rosarians</h1>
+          <h1>Be a Sto. Rosarians</h1>
         </Row>
         <Row>
           <p>
@@ -72,7 +64,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      <Container fluid>
+      <Container>
         <iframe
           width="100%"
           height="100%"
@@ -84,8 +76,19 @@ const Home = () => {
           allowFullScreen
         ></iframe>
       </Container>
-      <Card.Footer className="text bg-success">
-        Dr. Sixto Antonio Ave., Pasig, Metro Manila, Philippines
+      <Card.Footer className="text bg-success text-center">
+        <div className='col-lg-12 text-white'>
+          Dr. Sixto Antonio Ave., Pasig, Metro Manila, Philippines
+        </div>
+        <div className='col-lg-12'>
+          <a href='https://www.facebook.com/'><i className="fab fa-facebook mx-1 text-white "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-twitter mx-1 text-white "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-youtube mx-1 text-white "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-instagram mx-1 text-white "></i></a>
+        </div>
+        <div className='col-lg-12 text-white'>
+          <small>2021 &copy; Escuela De Sto Rosario </small>
+        </div>
       </Card.Footer>
     </div>
   );
