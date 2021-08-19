@@ -15,7 +15,7 @@ function App() {
       <Navigation />
       <TransitionGroup>
         <CSSTransition
-          timeout={300}
+          timeout={75}
           classNames='fade'
           key={location.key}
         >
