@@ -3,7 +3,7 @@ a:-webkit-any-link {
 }
 
 .nav-links {
-    position: relative;
+    position: fixed;
     z-index: 900;
     left: 0;
     right: 0;
