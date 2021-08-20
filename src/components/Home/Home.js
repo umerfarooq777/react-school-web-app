@@ -1,20 +1,53 @@
 import React from "react";
+import HeroCarousel from "react-hero-carousel";
 import { Card, Container, Row, Carousel, Image } from "react-bootstrap";
 import './Home.css';
 import image1 from '../../img/ABOUT-US_BANNER-CTA_1.png'
+import Hero from "./components/Hero";
 
 const Home = () => {
   return (
     <div className='home'>
+      <HeroCarousel>
+        <img
+          src="https://wallpaperaccess.com/full/776480.jpg"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+          alt='1'
+        />
+        <img
+          src="https://wallpaperaccess.com/full/776481.jpg"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+          alt='1'
+        />
+        <img
+          src="https://wallpaperaccess.com/full/776483.jpg"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+          alt='1'
+        />
+      </HeroCarousel>
+
       <Container>
-        <Row>
-          <h5>FUTURE-READY LEARNING</h5>
+        <Row className='col-md-12 p-1'>
+          <h3>FUTURE-READY LEARNING</h3>
         </Row>
-        <Row>
-          <div className='col-md-3'>
+
+        <Row className='w-100'>
+          <div className='col-md-3 p-1'>
             <h1>Be a Sto. Rosarians</h1>
           </div>
-          <div className='col-md-9'>
+          <div className='col-md-9 p-1'>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quam
               laborum id consequatur quasi itaque, doloribus perspiciatis
@@ -27,37 +60,9 @@ const Home = () => {
         </Row>
       </Container>
 
-      <Carousel nextLabel="" prevLabel="">
-        <Carousel.Item>
-          <Image        
-            src={image1}
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <Image
-            src={image1}
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <Image
-            src={image1}
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+      <Row  className='mb-2'>
+        <img src='https://www.apecschools.edu.ph/wp-content/uploads/2020/03/enrollment-cta-1-1.png' />
+      </Row>
 
       <Container className='mb-2' >
         <Row>
@@ -82,18 +87,6 @@ const Home = () => {
         </Row>
       </Container>
 
-      <Container>
-        <iframe
-          width="100%"
-          height="100%"
-          margin="5"
-          src="https://www.youtube.com/embed/ghAWEHTTZPQ"
-          title="Escuela De Sto Rosario Orientation Video"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </Container>
       <Card.Footer className="text bg-success text-center">
         <div className='col-lg-12 text-white'>
           Dr. Sixto Antonio Ave., Pasig, Metro Manila, Philippines
