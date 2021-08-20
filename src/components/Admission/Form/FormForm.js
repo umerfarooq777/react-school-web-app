@@ -56,13 +56,24 @@ const FormForm = (props) => {
 
             props.onSubmit({
                 id: Date.now(),
+                date: dateToday,
                 fName: fName,
                 lName: lName,
                 mName: mName,
-                date: dateToday
+                birthday: birthday,
+                contact: contact,
+                email: email,
+                address: address,
+                program: program,
             });
             setFName('');
             setLName('');
+            setMName('');
+            setBirth('');
+            setContact('');
+            setEmail('');
+            setAddress('');
+            setProgram('');
 
         } else {
 
@@ -176,7 +187,7 @@ const FormForm = (props) => {
 
                 <div>
                     <label htmlFor='program' className='form-check-label mt-3'>Educational Program</label>
-                    <br/    >
+                    <br />
                     <small>Pre-School | Gradeschool | Senior/Junior Highschool</small>
                     <input
                         className='form-control  mt-1'
