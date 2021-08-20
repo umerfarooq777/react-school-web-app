@@ -2,8 +2,9 @@
 
 const PreSchool = () => {
     return (
-        <div>
+        <div className='preschool'>
             Hello Andrew this works,
+            {/* Pinalitan ko muna component sa App.js  */}
         </div>
 
     )

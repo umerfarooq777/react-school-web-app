@@ -26,16 +26,16 @@ const Navigation = () => {
 
             <NavDropdown title="Programs" id="collasible-nav-dropdown">
             <MenuItem className='nav-dropdown'>
-                <NavLink to='/pre-school'>Pre-School</NavLink>
+                <NavLink to='/preschool'>Pre-School</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
-                <NavLink to='/grade-school'>Grade School</NavLink>
+                <NavLink to='/gradeschool'>Grade School</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
-                <NavLink to='/junior-high-school'>Junior High School</NavLink>
+                <NavLink to='/junior-highschool'>Junior High School</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
-                <NavLink to='/senior-high-school'>Senior High School</NavLink>
+                <NavLink to='/senior-highschool'>Senior High School</NavLink>
               </MenuItem>
             </NavDropdown>
             <MenuItem>
