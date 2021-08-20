@@ -22,10 +22,18 @@
   transition: opacity 200ms ease-in-out
 }
 
-.home {
+.home,
+.under-development,
+.not-found,
+.preschool,
+.contact-us,
+.student-signin,
+.about-us,
+.admission {
     position: relative;
+    overflow-x: hidden;
     bottom: 0;
-    top: 35px;
+    top: 0;
     left: 0;
     right: 0;
 }
