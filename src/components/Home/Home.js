@@ -1,9 +1,7 @@
 import React from "react";
 import HeroCarousel from "react-hero-carousel";
-import { Card, Container, Row, Carousel, Image } from "react-bootstrap";
+import { Card, Container, Row, Image } from "react-bootstrap";
 import './Home.css';
-import image1 from '../../img/ABOUT-US_BANNER-CTA_1.png'
-import Hero from "./components/Hero";
 
 const Home = () => {
   return (
@@ -61,7 +59,7 @@ const Home = () => {
       </Container>
 
       <Row  className='mb-2'>
-        <img src='https://www.apecschools.edu.ph/wp-content/uploads/2020/03/enrollment-cta-1-1.png' />
+        <img src='https://www.apecschools.edu.ph/wp-content/uploads/2020/03/enrollment-cta-1-1.png' alt='4'/>
       </Row>
 
       <Container className='mb-2' >

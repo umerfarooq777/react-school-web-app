@@ -4,7 +4,6 @@ import ModalConfirm from './ModalConfirm';
 
 const FormForm = (props) => {
 
-    const [date, setDate] = useState('');
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
     const [mName, setMName] = useState('');
@@ -62,7 +61,6 @@ const FormForm = (props) => {
                 mName: mName,
                 date: dateToday
             });
-            setDate(dateToday);
             setFName('');
             setLName('');
 
