@@ -10,7 +10,7 @@ import NotFound from "./components/ExtraPages/NotFound";
 import UnderDevelopment from "./components/ExtraPages/UnderDevelopment";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Admission from "./components/Admission/Admission";
-
+import Album from './components/PreSchool/PreSchool';
 
 
 
@@ -31,7 +31,7 @@ function App() {
           <Switch location={location}>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={AboutUs} />
-            <Route path="/preschool" component={UnderDevelopment} />
+            <Route path="/preschool" component={Album} />
             <Route path="/contact" component={ContactUs} />
             <Route path="/application-id" component={SignIn} />
             {/* FOR FUTURE DEVELOPMENT */}

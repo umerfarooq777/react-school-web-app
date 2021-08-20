@@ -3,7 +3,7 @@ import FormList from './Form/FormList'
 
 const Admission = () => {
     return (
-        <div className='admission'>
+        <div className='admission d-flex justify-content-center' >
             <FormList />
         </div>
     )

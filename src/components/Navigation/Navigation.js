@@ -2,7 +2,9 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import { MenuItem } from "@material-ui/core";
-import './Navigation.css'
+import './Navigation.css';
+
+
 
 const Navigation = () => {
   return (
@@ -25,7 +27,7 @@ const Navigation = () => {
             </MenuItem>
 
             <NavDropdown title="Programs" id="collasible-nav-dropdown">
-            <MenuItem className='nav-dropdown'>
+              <MenuItem className='nav-dropdown'>
                 <NavLink to='/preschool'>Pre-School</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>

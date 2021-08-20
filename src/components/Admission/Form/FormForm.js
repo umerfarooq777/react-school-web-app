@@ -1,141 +1,203 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
+import { Container } from 'react-bootstrap';
+import ModalConfirm from './ModalConfirm';
 
 const FormForm = (props) => {
 
-    const [input, setInput] = useState(props.edit ? props.edit.text : '');
-    const [date, setDate] = useState(props.edit ? props.edit.date : '');
+    const [date, setDate] = useState('');
+    const [fName, setFName] = useState('');
+    const [lName, setLName] = useState('');
+    const [mName, setMName] = useState('');
+    const [birthday, setBirth] = useState('');
+    const [contact, setContact] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [program, setProgram] = useState('');
 
-    const inputRef = useRef(null);
     const today = new Date();
     const dateToday = today.getFullYear() + '-' + (today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : today
         .getMonth() + 1) + '-' + (today.getDate() < 10 ? `0${today.getDate()}` : today.getDate());
 
-    useEffect(() => {
-        inputRef.current.focus()
-    })
-
-    const handleChange = (e) => {
-        setInput(e.target.value)
+    const handleFName = (e) => {
+        setFName(e.target.value)
     }
 
-    const handleDate = (e) => {
-        setDate(e.target.value)
+    const handleLName = (e) => {
+        setLName(e.target.value)
+    }
+
+    const handleMName = (e) => {
+        setMName(e.target.value)
+    }
+
+    const handleBirthday = (e) => {
+        setBirth(e.target.value)
+    }
+
+    const handleContact = (e) => {
+        setContact(e.target.value)
+    }
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handleAddress = (e) => {
+        setAddress(e.target.value)
+    }
+
+    const handleProgram = (e) => {
+        setProgram(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (input !== '' && date !== '') {
+        if (fName !== '') {
 
             props.onSubmit({
                 id: Date.now(),
-                text: input,
-                date: date
+                fName: fName,
+                lName: lName,
+                mName: mName,
+                date: dateToday
             });
-            setInput('');
-            setDate('');
+            setDate(dateToday);
+            setFName('');
+            setLName('');
 
         } else {
 
             alert('Invalid Input. Please Try Again.');
 
-        }
-    }
-
-    const handleDeleteAll = (e) => {
-        e.preventDefault();
-
-        props.onClick({
-            id: null,
-            text: null,
-            date: null
-        });
-        setInput('');
-        setDate('');
-
+        } return <ModalConfirm />
     }
 
     return (
-        <div>
+        <Container>
+            <form onSubmit={handleSubmit} className='m-2'>
+                <div className='text-center'>
+                    <h1>Escuela De Sto Rosario</h1>
+                    <h4>Online Applicant Registration</h4>
+                </div>
 
-            {props.edit ?
-                (
-                    <form onSubmit={handleSubmit} className='m-2'>
-                        <div className='text-center'>
-                            <h4>Tasks for the Day</h4>
-                        </div>
+                <input className='form-control  mt-1' value={dateToday} type="date" id="date" name="date" readOnly />
 
-                        <input
-                            className='form-control'
-                            type="date"
-                            min={dateToday}
-                            max={dateToday}
-                            value={date}
-                            onChange={handleDate}
-                            ref={inputRef}
-                        />
+                <div>
+                    <label htmlFor='fName' className='form-check-label mt-3'>First Name</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='text'
+                        id='fName'
+                        value={fName}
+                        placeholder='First Name'
+                        onChange={handleFName}
+                        required
+                    />
+                </div>
 
-                        <div>
-                            <textarea
-                                className='form-control  mt-1'
-                                value={input}
-                                placeholder='Place your Tasks here'
-                                onChange={handleChange}
-                                ref={inputRef}
-                                rows='10'
-                            />
-                        </div>
+                <div>
+                    <label htmlFor='lName' className='form-check-label mt-3'>Middle Name</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='text'
+                        id='lName'
+                        value={mName}
+                        placeholder='Middle Name'
+                        onChange={handleMName}
+                        required
+                    />
+                </div>
 
-                        <div>
-                            <button className='btn btn-success col-12'>
-                                Submit Edit
-                            </button>
-                        </div>
-                    </form>
+                <div>
+                    <label htmlFor='mName' className='form-check-label mt-3'>Last Name</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='text'
+                        id='mName'
+                        value={lName}
+                        placeholder='Last Name'
+                        onChange={handleLName}
+                        required
+                    />
+                </div>
 
-                ) : (
+                <div>
+                    <label htmlFor='birthday' className='form-check-label mt-3'>Birthdate</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='date'
+                        id='birthday'
+                        min='1960-01-01'
+                        max={dateToday}
+                        value={birthday}
+                        onChange={handleBirthday}
+                        required
+                    />
+                </div>
 
-                    <form onSubmit={handleSubmit} className='m-2'>
-                        <div className='text-center'>
-                            <h4>Tasks for the Day</h4>
-                        </div>
+                <div>
+                    <label htmlFor='mobile' className='form-check-label mt-3'>11-Digit Mobile Contact Number</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='tel'
+                        id='mobile'
+                        pattern='[0-9]{11}'
+                        placeholder='09#########'
+                        value={contact}
+                        onChange={handleContact}
+                        required
+                    />
+                </div>
 
-                        <input
-                            className='form-control'
-                            type="date"
-                            min={dateToday}
-                            max={dateToday}
-                            value={date}
-                            onChange={handleDate}
-                            ref={inputRef}
-                        />
+                <div>
+                    <label htmlFor='email' className='form-check-label mt-3'>Email Address</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='email'
+                        id='email'
+                        placeholder='Working Email Address'
+                        value={email}
+                        onChange={handleEmail}
+                        required
+                    />
+                </div>
 
-                        <div>
-                            <textarea
-                                className='form-control  mt-1'
-                                value={input}
-                                placeholder='Place your Tasks here'
-                                onChange={handleChange}
-                                ref={inputRef}
-                                rows='10'
-                            />
-                        </div>
+                <div>
+                    <label htmlFor='address' className='form-check-label mt-3'>Current Home Address</label>
+                    <input
+                        className='form-control  mt-1'
+                        type='text'
+                        id='address'
+                        placeholder='Current Home Address'
+                        value={address}
+                        onChange={handleAddress}
+                        required
+                    />
+                </div>
 
-                        <div>
-                            <button className='btn btn-success col-12'>
-                                Add To-Do
-                            </button>
-                        </div>
+                <div>
+                    <label htmlFor='program' className='form-check-label mt-3'>Educational Program</label>
+                    <br/    >
+                    <small>Pre-School | Gradeschool | Senior/Junior Highschool</small>
+                    <input
+                        className='form-control  mt-1'
+                        type='text'
+                        id='program'
+                        placeholder='Choose one educational program'
+                        value={program}
+                        onChange={handleProgram}
+                        required
+                    />
+                </div>
 
-                        <div>
-                            <button type='button' className='btn btn-danger' onClick={handleDeleteAll} >
-                                Delete All
-                            </button>
-                        </div>
-                    </form>
-
-                )}
-        </div>
+                <div>
+                    <button className='btn btn-success col-12 my-3'>
+                        Submit Registration
+                    </button>
+                </div>
+            </form>
+        </Container>
     )
 }
 

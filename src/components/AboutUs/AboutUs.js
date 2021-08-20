@@ -1,7 +1,10 @@
 import React from "react";
 import { Card, Container, Row, Carousel, Image } from "react-bootstrap";
 import './AboutUs.css';
-import image1 from '../../img/ABOUT-US_BANNER-CTA_1.png'
+import image1 from '../../img/ABOUT-US_BANNER-CTA_1.png';
+import HeaderColumn from "../ColumnHeader/ColumnHeaders";
+
+
 
 const AboutUs = () => {
   return (
@@ -30,7 +33,7 @@ const AboutUs = () => {
       <Carousel nextLabel="" prevLabel="">
         <Carousel.Item>
           <Image
-            className = 'image-slider'  
+            className='image-slider'
             src={image1}
             alt="First slide"
           />
@@ -41,7 +44,7 @@ const AboutUs = () => {
 
         <Carousel.Item>
           <Image
-            className = 'image-slider'  
+            className='image-slider'
             src={image1}
             alt="First slide"
           />
@@ -52,7 +55,7 @@ const AboutUs = () => {
 
         <Carousel.Item>
           <Image
-            className = 'image-slider'  
+            className='image-slider'
             src={image1}
             alt="First slide"
           />
@@ -63,6 +66,9 @@ const AboutUs = () => {
       </Carousel>
 
       <Container className='mb-2' >
+        
+        <HeaderColumn />
+
         <Row>
           <div className='col-md-6'>
             <Row className='w-100'>
@@ -84,6 +90,7 @@ const AboutUs = () => {
           </div>
         </Row>
       </Container>
+      <div>Testing</div>
 
       <Card.Footer className="text bg-success text-center">
         <div className='col-lg-12 text-white'>
@@ -99,6 +106,7 @@ const AboutUs = () => {
           <small>2021 &copy; Escuela De Sto Rosario </small>
         </div>
       </Card.Footer>
+
     </div>
   );
 };
