@@ -38,12 +38,12 @@ const Navigation = () => {
                 <NavLink to='/senior-high-school'>Senior High School</NavLink>
               </MenuItem>
             </NavDropdown>
+            <MenuItem>
+              <NavLink to='/contact'>Contact us</NavLink>
+            </MenuItem>
           </Nav>
 
           <Nav>
-            <MenuItem>
-              <NavLink to='/contact'>Contact-us</NavLink>
-            </MenuItem>
             <NavDropdown title="ESR Portal" id="collasible-nav-dropdown">
               <MenuItem className='nav-dropdown'>
                 <NavLink to='/application-id'>Student Portal</NavLink>
