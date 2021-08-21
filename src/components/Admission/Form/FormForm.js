@@ -33,6 +33,7 @@ const FormForm = (props) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [error, setError] = React.useState(false);
+    const [validationStyle, setValidationStyle] = useState('');
 
     const handleClose = () => {
         setOpen(false);
@@ -87,20 +88,12 @@ const FormForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (fName !== '' || mName !== '' || lName !== '' || birthday !== '' || contact !== '' || email !== '' || address !== '' || program !== '') {
+        if (fName === '' || mName === '' || lName === '' || birthday === '' || contact === '' || email === '' || address === '' || program === '' || /^\s*$/.test(fName) || /^\s*$/.test(mName) || /^\s*$/.test(lName) || /^\s*$/.test(birthday) || /^\s*$/.test(contact) || /^\s*$/.test(email) || /^\s*$/.test(address) || /^\s*$/.test(program)) {
 
-            props.onSubmit({
-                id: Date.now(),
-                date: dateToday,
-                fName: fName,
-                lName: lName,
-                mName: mName,
-                birthday: birthday,
-                contact: contact,
-                email: email,
-                address: address,
-                program: program,
-            });
+            setValidationStyle(`red`)
+            setError(true);
+
+        } else {
 
             setFName('');
             setLName('');
@@ -111,6 +104,7 @@ const FormForm = (props) => {
             setAddress('');
             setProgram('');
             setOpen(true);
+            setValidationStyle(``)
 
             fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/enrollee.json',
 
@@ -118,7 +112,7 @@ const FormForm = (props) => {
                     method: 'POST',
                     body: JSON.stringify(
                         {
-                            id: Date.now(),
+                            id: 'AID-' + Date.now(),
                             date: dateToday,
                             fName: fName,
                             lName: lName,
@@ -134,10 +128,6 @@ const FormForm = (props) => {
                         'Content-Type': 'application/json'
                     }
                 })
-
-        } else {
-
-            setError(true);
 
         }
     }
@@ -155,7 +145,8 @@ const FormForm = (props) => {
                 <div>
                     <label htmlFor='fName' className='form-check-label mt-3'>First Name</label>
                     <input
-                        className='form-control  mt-1'
+                        className='form-control mt-1'
+                        style={(fName === '' || /^\s*$/.test(fName)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='text'
                         id='fName'
                         value={fName}
@@ -168,6 +159,7 @@ const FormForm = (props) => {
                     <label htmlFor='lName' className='form-check-label mt-3'>Middle Name</label>
                     <input
                         className='form-control  mt-1'
+                        style={(mName === '' || /^\s*$/.test(mName)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='text'
                         id='lName'
                         value={mName}
@@ -181,6 +173,7 @@ const FormForm = (props) => {
                     <label htmlFor='mName' className='form-check-label mt-3'>Last Name</label>
                     <input
                         className='form-control  mt-1'
+                        style={(lName === '' || /^\s*$/.test(lName)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='text'
                         id='mName'
                         value={lName}
@@ -194,6 +187,7 @@ const FormForm = (props) => {
                     <label htmlFor='birthday' className='form-check-label mt-3'>Birthdate</label>
                     <input
                         className='form-control  mt-1'
+                        style={(birthday === '' || /^\s*$/.test(birthday)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='date'
                         id='birthday'
                         min='1960-01-01'
@@ -208,6 +202,7 @@ const FormForm = (props) => {
                     <label htmlFor='mobile' className='form-check-label mt-3'>11-Digit Mobile Contact Number</label>
                     <input
                         className='form-control  mt-1'
+                        style={(contact === '' || /^\s*$/.test(contact)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='tel'
                         id='mobile'
                         pattern='[0-9]{11}'
@@ -222,6 +217,7 @@ const FormForm = (props) => {
                     <label htmlFor='email' className='form-check-label mt-3'>Email Address</label>
                     <input
                         className='form-control  mt-1'
+                        style={(email === '' || /^\s*$/.test(email)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='email'
                         id='email'
                         placeholder='Working Email Address'
@@ -235,6 +231,7 @@ const FormForm = (props) => {
                     <label htmlFor='address' className='form-check-label mt-3'>Current Home Address</label>
                     <input
                         className='form-control  mt-1'
+                        style={(address === '' || /^\s*$/.test(address)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='text'
                         id='address'
                         placeholder='Current Home Address'
@@ -250,6 +247,7 @@ const FormForm = (props) => {
                     <small>Pre-School | Gradeschool | Senior/Junior Highschool</small>
                     <input
                         className='form-control  mt-1'
+                        style={(program === '' || /^\s*$/.test(program)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         type='text'
                         id='program'
                         placeholder='Choose one educational program'

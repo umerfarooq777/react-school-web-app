@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import "./TeacherSignIn.css";
+import { DataGrid } from '@material-ui/data-grid';
 
 // TODO: Need to use ^^ css to have background image pwede na bing background image
 function Copyright() {
@@ -43,13 +44,22 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+//     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+//     { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+//     { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+//     { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+//     { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+//     { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+//     { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+//     { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+//     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+// ];
+
 export default function TeacherSignIn() {
     // Fetch
-    const [isLoading, setIsLoading] = useState(true);
     const [loadedEnrollee, setLoadedEnrollee] = useState([]);
 
     useEffect(() => {
-        setIsLoading(true);
         fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/enrollee.json'
         ).then(response => {
             return response.json();
@@ -65,19 +75,92 @@ export default function TeacherSignIn() {
 
                 meetups.push(meetup)
             }
-
-
-            setIsLoading(false);
             setLoadedEnrollee(meetups);
         });
 
     }, []);
+
+    const columns = [
+        {
+            field: 'id',
+            headerName: 'Applicant ID',
+            width: 190
+        },
+        {
+            field: 'fName',
+            headerName: 'First name',
+            width: 200,
+            editable: false,
+        },
+        {
+            field: 'mName',
+            headerName: 'Middle name',
+            width: 200,
+            editable: false,
+        },
+        {
+            field: 'lName',
+            headerName: 'Last Name',
+            width: 200,
+            editable: false,
+        },
+        {
+            field: 'program',
+            headerName: 'Education Program',
+            width: 250,
+            editable: false,
+        },
+        {
+            field: 'email',
+            headerName: 'Email Address',
+            width: 250,
+            type: 'email',
+            editable: false,
+        },
+        {
+            field: 'contact',
+            headerName: 'Contact Number',
+            width: 250,
+            type: 'tel',
+            editable: false,
+        },
+        {
+            field: 'address',
+            headerName: 'Home Address',
+            width: 500,
+            editable: false,
+        },
+        {
+            field: 'birthday',
+            headerName: 'Birthdate',
+            width: 250,
+            type: 'date',
+            editable: false,
+        },
+    ];
+
+    const rows = loadedEnrollee.map(meetup => (
+        {
+            id: meetup.id,
+            fName: meetup.fName,
+            mName: meetup.mName,
+            lName: meetup.lName,
+            program: meetup.program,
+            email: meetup.email,
+            contact: meetup.contact,
+            address: meetup.address,
+            birthday: meetup.birthday,
+        }
+    ));
     // Fetch
     const classes = useStyles();
-    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+    const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
 
+    if (isLoading) return <h1 className="text-center">Fetching Database...</h1>
 
     return (
+
+
 
         !isAuthenticated ? (
             <div className='teacher-signin'>
@@ -114,41 +197,33 @@ export default function TeacherSignIn() {
                 </section>
             ) : (
                 <div className='teacher-signin'>
-                    <Container component="main" maxWidth="xs">
-                        <div className={classes.paper}>
-                            <Avatar className={classes.avatar}>
-                            </Avatar>
-                            <Typography component="h1" variant="h5">
-                                Teacher Portal
-                            </Typography>
-                            <form className={classes.form} required>
-                                <Button
-                                    type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.submit}
-                                    onClick={() => logout()}
-                                >
-                                    Sign Out
-                                </Button>
-                            </form>
+                    <div className="d-flex flex-column align-items-center">
+                        <Avatar className={classes.avatar}>
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            Teacher Portal
+                        </Typography>
+                        <h1>ENROLLEE DATABASE</h1>
+                        <div style={{ height: '80vh', width: '90%' }}>
+                            <DataGrid
+                                rows={rows}
+                                columns={columns}
+                                checkboxSelection
+                                disableSelectionOnClick
+                            />
                         </div>
-                        <div className="m-2 mb-4 border-rounded">
-                            DATA
-                            <table>
-                                <tr>
-                                    <th>Applicant ID</th>
-                                    <th>Full Name</th>
-                                </tr>
-                                {loadedEnrollee.map(meetup =>
-                                    <tr>
-                                        <td>{meetup.id}</td>
-                                        <td>{meetup.fName}</td>
-                                    </tr>
-                                )}
-                            </table>
-                        </div>
+                    </div>
+                    <Container component="main" maxWidth="xs" className="mb-5">
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={() => logout()}
+                        >
+                            Sign Out
+                        </Button>
                     </Container>
                 </div>
             )
