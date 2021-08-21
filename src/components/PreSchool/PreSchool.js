@@ -10,9 +10,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import { Col } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image'
 
 function Copyright() {
   return (
+    <Container>
+    <Row className="justify-content-md-center">
+    <Col  xs={6}>
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
@@ -21,6 +26,16 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
+    </Col>
+    <Col xs={6}>
+    <Center></Center>
+    <Image src="#/171x180" thumbnail />
+
+
+
+    </Col>
+    </Row>
+    </Container>
   );
 }
 
