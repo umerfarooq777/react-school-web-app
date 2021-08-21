@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.css"; 
 import { Switch, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Navigation from "./components/Navigation/Navigation";

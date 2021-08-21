@@ -3,21 +3,18 @@
 }
 
 .about-us .carousel-inner {
-    background-color: black;
+    background-color: transparent;
 }
 
 .about-us .carousel-item {
-    height: 400px;
+    position: relative;
 }
 
 .about-us .carousel-item img {
-    background-size: cover;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    left: 0;
+    position: relative;
     top: 0;
-    height: 400px;
+    left: 0;
+    height: 100%;
     width: 100%;
 }
 

@@ -8,7 +8,7 @@ const FormList = () => {
     const [forms, setForms] = useState(retrieveData);
 
     const addForm = (form) => {
-        if (!form.fName || /^\s*$/.test(form.fName)) {
+        if (!form.fName || !form.mName || !form.lName || !form.birthday || !form.contact || !form.email || !form.address || !form.program || /^\s*$/.test(form.fName) || /^\s*$/.test(form.mName) || /^\s*$/.test(form.lName)|| /^\s*$/.test(form.birthday) || /^\s*$/.test(form.contact) || /^\s*$/.test(form.email) || /^\s*$/.test(form.email) || /^\s*$/.test(form.address) || /^\s*$/.test(form.program)) {
             return
         }
         const newForms = [form, ...forms];
