@@ -48,7 +48,12 @@ const Navigation = () => {
           <Nav>
             <NavDropdown title="ESR Portal" id="collasible-nav-dropdown">
               <MenuItem className='nav-dropdown'>
-                <NavLink to='/application-id'>Student Portal</NavLink>
+                <NavLink to='/teacher-portal'>Teacher Portal</NavLink>
+              </MenuItem>
+              <MenuItem className='nav-dropdown'>
+                <a href='https://semantic-ui.com/examples/login.html' target='_blank' rel='noreferrer'>
+                  Student Portal
+                </a>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
                 <NavLink to='/admission'>Admission</NavLink>

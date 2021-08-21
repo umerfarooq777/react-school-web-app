@@ -4,7 +4,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Navigation from "./components/Navigation/Navigation";
 import Home from "./components/Home/Home";
 // import PreSchool from "./components/PreSchool/PreSchool";
-import SignIn from "./components/StudentPortal/StudentSignIn";
+import TeacherSignIn from "./components/TeacherPortal/TeacherSignIn";
 import ContactUs from './components/ContactUs/ContactUs';
 import NotFound from "./components/ExtraPages/NotFound";
 import UnderDevelopment from "./components/ExtraPages/UnderDevelopment";
@@ -33,7 +33,7 @@ function App() {
             <Route path="/about" component={AboutUs} />
             <Route path="/preschool" component={Album} />
             <Route path="/contact" component={ContactUs} />
-            <Route path="/application-id" component={SignIn} />
+            <Route path="/teacher-portal" component={TeacherSignIn} />
             {/* FOR FUTURE DEVELOPMENT */}
             <Route path="/gradeschool" component={UnderDevelopment} />
             <Route path="/junior-highschool" component={UnderDevelopment} />

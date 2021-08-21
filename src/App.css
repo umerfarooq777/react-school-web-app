@@ -28,12 +28,13 @@
 .preschool,
 .contact-us,
 .student-signin,
+.teacher-signin,
 .about-us,
 .admission {
-    position: relative;
-    overflow-x: hidden;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
+  position: relative;
+  overflow-x: hidden;
+  bottom: 0;
+  top: 70px;
+  left: 0;
+  right: 0;
 }
