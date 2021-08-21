@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -102,6 +101,7 @@ const FormForm = (props) => {
                 address: address,
                 program: program,
             });
+
             setFName('');
             setLName('');
             setMName('');
@@ -111,6 +111,29 @@ const FormForm = (props) => {
             setAddress('');
             setProgram('');
             setOpen(true);
+
+            fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/enrollee.json',
+
+                {
+                    method: 'POST',
+                    body: JSON.stringify(
+                        {
+                            id: Date.now(),
+                            date: dateToday,
+                            fName: fName,
+                            lName: lName,
+                            mName: mName,
+                            birthday: birthday,
+                            contact: contact,
+                            email: email,
+                            address: address,
+                            program: program,
+                        }
+                    ),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
 
         } else {
 
@@ -150,7 +173,7 @@ const FormForm = (props) => {
                         value={mName}
                         placeholder='Middle Name'
                         onChange={handleMName}
-                        
+
                     />
                 </div>
 
@@ -163,7 +186,7 @@ const FormForm = (props) => {
                         value={lName}
                         placeholder='Last Name'
                         onChange={handleLName}
-                        
+
                     />
                 </div>
 
@@ -177,7 +200,7 @@ const FormForm = (props) => {
                         max={dateToday}
                         value={birthday}
                         onChange={handleBirthday}
-                        
+
                     />
                 </div>
 
@@ -191,7 +214,7 @@ const FormForm = (props) => {
                         placeholder='09#########'
                         value={contact}
                         onChange={handleContact}
-                        
+
                     />
                 </div>
 
@@ -204,7 +227,7 @@ const FormForm = (props) => {
                         placeholder='Working Email Address'
                         value={email}
                         onChange={handleEmail}
-                        
+
                     />
                 </div>
 
@@ -217,7 +240,7 @@ const FormForm = (props) => {
                         placeholder='Current Home Address'
                         value={address}
                         onChange={handleAddress}
-                        
+
                     />
                 </div>
 
@@ -232,14 +255,22 @@ const FormForm = (props) => {
                         placeholder='Choose one educational program'
                         value={program}
                         onChange={handleProgram}
-                        
+
                     />
                 </div>
 
                 <div>
-                    <button className='btn btn-success col-12 my-3'>
+                    <button type='submit' className='btn btn-success col-12 mt-3'>
                         Submit Registration
                     </button>
+                </div>
+
+                <div>
+                    <a href='https://semantic-ui.com/examples/login.html' target='_blank' rel='noreferrer'>
+                        <button type='button' className='btn btn-secondary col-12 mt-3 mb-5'>
+                            Go To Student Portal
+                        </button>
+                    </a>
                 </div>
             </form>
             <Modal
