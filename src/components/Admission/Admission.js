@@ -1,10 +1,12 @@
 import React from 'react'
-import TodoList from './Form/FormList'
+import FormForm from './Form/FormForm'
 
 const Admission = () => {
     return (
         <div className='admission d-flex justify-content-center' >
-            <TodoList />
+            <div className='col-lg-6'>
+                <FormForm  />
+            </div>
         </div>
     )
 }
