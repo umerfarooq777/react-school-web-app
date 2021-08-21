@@ -12,6 +12,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { Col } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
+import JuniorHigh from '../JuniorHighSchool/JuniorHigh';
 
 function Copyright() {
   return (
@@ -30,12 +31,11 @@ function Copyright() {
     <Col xs={6}>
     <Center></Center>
     <Image src="#/171x180" thumbnail />
-
-
-
     </Col>
     </Row>
+    <JuniorHigh/>
     </Container>
+    
   );
 }
 
