@@ -1,8 +1,43 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
-import ModalConfirm from './ModalConfirm';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+
+const useStyles = makeStyles((theme) => ({
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    paperError: {
+        backgroundColor: '#ff7f7f',
+        border: 'none',
+        borderRadius: '5px',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+
+    paper: {
+        backgroundColor: 'lightgreen',
+        border: 'none',
+        borderRadius: '5px',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
 
 const FormForm = (props) => {
+
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const [error, setError] = React.useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+        setError(false);
+    };
 
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
@@ -52,23 +87,59 @@ const FormForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (fName !== '') {
+        if (fName !== '' || mName !== '' || lName !== '' || birthday !== '' || contact !== '' || email !== '' || address !== '' || program !== '') {
 
             props.onSubmit({
                 id: Date.now(),
+                date: dateToday,
                 fName: fName,
                 lName: lName,
                 mName: mName,
-                date: dateToday
+                birthday: birthday,
+                contact: contact,
+                email: email,
+                address: address,
+                program: program,
             });
+
             setFName('');
             setLName('');
+            setMName('');
+            setBirth('');
+            setContact('');
+            setEmail('');
+            setAddress('');
+            setProgram('');
+            setOpen(true);
+
+            fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/enrollee.json',
+
+                {
+                    method: 'POST',
+                    body: JSON.stringify(
+                        {
+                            id: Date.now(),
+                            date: dateToday,
+                            fName: fName,
+                            lName: lName,
+                            mName: mName,
+                            birthday: birthday,
+                            contact: contact,
+                            email: email,
+                            address: address,
+                            program: program,
+                        }
+                    ),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
 
         } else {
 
-            alert('Invalid Input. Please Try Again.');
+            setError(true);
 
-        } return <ModalConfirm />
+        }
     }
 
     return (
@@ -90,7 +161,6 @@ const FormForm = (props) => {
                         value={fName}
                         placeholder='First Name'
                         onChange={handleFName}
-                        required
                     />
                 </div>
 
@@ -103,7 +173,7 @@ const FormForm = (props) => {
                         value={mName}
                         placeholder='Middle Name'
                         onChange={handleMName}
-                        required
+
                     />
                 </div>
 
@@ -116,7 +186,7 @@ const FormForm = (props) => {
                         value={lName}
                         placeholder='Last Name'
                         onChange={handleLName}
-                        required
+
                     />
                 </div>
 
@@ -130,7 +200,7 @@ const FormForm = (props) => {
                         max={dateToday}
                         value={birthday}
                         onChange={handleBirthday}
-                        required
+
                     />
                 </div>
 
@@ -144,7 +214,7 @@ const FormForm = (props) => {
                         placeholder='09#########'
                         value={contact}
                         onChange={handleContact}
-                        required
+
                     />
                 </div>
 
@@ -157,7 +227,7 @@ const FormForm = (props) => {
                         placeholder='Working Email Address'
                         value={email}
                         onChange={handleEmail}
-                        required
+
                     />
                 </div>
 
@@ -170,13 +240,13 @@ const FormForm = (props) => {
                         placeholder='Current Home Address'
                         value={address}
                         onChange={handleAddress}
-                        required
+
                     />
                 </div>
 
                 <div>
                     <label htmlFor='program' className='form-check-label mt-3'>Educational Program</label>
-                    <br/    >
+                    <br />
                     <small>Pre-School | Gradeschool | Senior/Junior Highschool</small>
                     <input
                         className='form-control  mt-1'
@@ -185,16 +255,61 @@ const FormForm = (props) => {
                         placeholder='Choose one educational program'
                         value={program}
                         onChange={handleProgram}
-                        required
+
                     />
                 </div>
 
                 <div>
-                    <button className='btn btn-success col-12 my-3'>
+                    <button type='submit' className='btn btn-success col-12 mt-3'>
                         Submit Registration
                     </button>
                 </div>
+
+                <div>
+                    <a href='https://semantic-ui.com/examples/login.html' target='_blank' rel='noreferrer'>
+                        <button type='button' className='btn btn-secondary col-12 mt-3 mb-5'>
+                            Go To Student Portal
+                        </button>
+                    </a>
+                </div>
             </form>
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                    <div className={classes.paper}>
+                        <h2 id="transition-modal-title">Submitted Succesfully</h2>
+                    </div>
+                </Fade>
+            </Modal>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={error}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={error}>
+                    <div className={classes.paperError}>
+                        <h2 id="transition-modal-title">Please Complete the Form</h2>
+                    </div>
+                </Fade>
+            </Modal>
         </Container>
     )
 }
