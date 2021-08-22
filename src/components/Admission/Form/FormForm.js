@@ -51,10 +51,6 @@ const FormForm = (props) => {
         setPrivacy(false)
     };
 
-    const handlePrivacy = () => {
-        setPrivacy(true)
-    }
-
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
     const [mName, setMName] = useState('');
