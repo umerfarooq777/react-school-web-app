@@ -26,6 +26,15 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
+
+    paperPrivacy: {
+        backgroundColor: 'lightgreen',
+        border: 'none',
+        borderRadius: '5px',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+        maxWidth: '50vw',
+    },
 }));
 
 const FormForm = (props) => {
@@ -33,12 +42,18 @@ const FormForm = (props) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [error, setError] = React.useState(false);
+    const [privacy, setPrivacy] = React.useState(true);
     const [validationStyle, setValidationStyle] = useState('');
 
     const handleClose = () => {
         setOpen(false);
         setError(false);
+        setPrivacy(false)
     };
+
+    const handlePrivacy = () => {
+        setPrivacy(true)
+    }
 
     const [fName, setFName] = useState('');
     const [lName, setLName] = useState('');
@@ -88,7 +103,7 @@ const FormForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (fName === '' || mName === '' || lName === '' || birthday === '' || contact === '' || email === '' || address === '' || program === '' || /^\s*$/.test(fName) || /^\s*$/.test(mName) || /^\s*$/.test(lName) || /^\s*$/.test(birthday) || /^\s*$/.test(contact) || /^\s*$/.test(email) || /^\s*$/.test(address) || /^\s*$/.test(program)) {
+        if (fName === '' || mName === '' || lName === '' || birthday === '' || contact === '' || email === '' || address === '' || program === '' || /^\s*$/.test(fName) || /^\s*$/.test(mName) || /^\s*$/.test(lName) || /^\s*$/.test(birthday) || /^\s*$/.test(contact) || /^\s*$/.test(email) || /^\s*$/.test(address) || /^\s*$/.test(program) || program !== 'Pre-School' || program !== 'Gradeschool' || program !== 'Senior Highschool' || program !== 'Junior Highschool') {
 
             setValidationStyle(`red`)
             setError(true);
@@ -104,6 +119,7 @@ const FormForm = (props) => {
             setAddress('');
             setProgram('');
             setOpen(true);
+            setPrivacy(false);
             setValidationStyle(``)
 
             fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/enrollee.json',
@@ -244,7 +260,7 @@ const FormForm = (props) => {
                 <div>
                     <label htmlFor='program' className='form-check-label mt-3'>Educational Program</label>
                     <br />
-                    <small>Pre-School | Gradeschool | Senior/Junior Highschool</small>
+                    <small>Preschool | Gradeschool | Junior Highschool | Senior Highschool</small>
                     <input
                         className='form-control  mt-1'
                         style={(program === '' || /^\s*$/.test(program)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
@@ -271,6 +287,39 @@ const FormForm = (props) => {
                     </a>
                 </div>
             </form>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={privacy}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={privacy}>
+                    <div className={classes.paperPrivacy}>
+                        <h3 id="transition-modal-title">Data Privacy Policy Statement</h3>
+                        <hr />
+                        <h6 id="transition-modal-title">Data Privacy Policy Statement</h6>
+                        <p>
+                            ESR or Escuela de Sto. Rosario and its Institution are committed to uphold the rights of individuals to data privacy.
+                            <br />Each person shall be guided by the principles of transparency, legitimate purpose and proportionality in processing personal data of students, parents, employees, external parties, and other stakeholders.
+                            <br />These principles shall guide the university in the acquisition, use and dissemination of the cited personal data.
+                        </p>
+                        <p>Transparency: Data subjects must be aware of the nature, purpose, and extent of the processing of his or her personal data, including the risks and safeguards involved, the identity of the personal information controller, his or her rights as a data subject, and how these can be exercised.</p>
+                        <p>Legitimate purpose : Personal data collected shall be processed based on declared and specified purpose, and shall not be contrary to law, morals, or public policy.</p>
+                        <p>Proportionality : Processing of personal data shall be adequate, relevant, suitable, necessary, and not excessive in relation to the functions of the institution.</p>
+                        <p>We shall adhere to all the provisions of Republic Act No. 10173 or Data Privacy Act of 2012, its implementing Rules and Regulations, relevant policies and issuance's of the National Privacy Commission, and all other requirements and standards for continuous improvement and effectiveness of personal security management system</p>
+                        <div className='text-center'>
+                            <button type='button' className='btn bg-success text-white' onClick={handleClose}>Agree</button>
+                        </div>
+                    </div>
+                </Fade>
+            </Modal>
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
