@@ -101,7 +101,7 @@ const FormForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (fName === '' || mName === '' || lName === '' || birthday === '' || contact === '' || email === '' || address === '' || program === '' || /^\s*$/.test(fName) || /^\s*$/.test(mName) || /^\s*$/.test(lName) || /^\s*$/.test(birthday) || /^\s*$/.test(contact) || /^\s*$/.test(email) || /^\s*$/.test(address) || /^\s*$/.test(program) || program !== 'Pre-School' || program !== 'Gradeschool' || program !== 'Senior Highschool' || program !== 'Junior Highschool') {
+        if (fName === '' || mName === '' || lName === '' || birthday === '' || contact === '' || email === '' || address === '' || program === '' || /^\s*$/.test(fName) || /^\s*$/.test(mName) || /^\s*$/.test(lName) || /^\s*$/.test(birthday) || /^\s*$/.test(contact) || /^\s*$/.test(email) || /^\s*$/.test(address) || /^\s*$/.test(program)) {
 
             setValidationStyle(`red`)
             setError(true);
