@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '5px',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
-        maxWidth: '40vw',
+        maxWidth: '80vw',
         height: '80vh',
         overflow: 'auto',
     },
