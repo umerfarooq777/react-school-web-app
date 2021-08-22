@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '5px',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
+        maxWidth: '80vw',
+        overflow: 'auto',
     },
 
     paper: {
@@ -25,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '5px',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
+        maxWidth: '80vw',
+        overflow: 'auto',
     },
 
     paperPrivacy: {
@@ -258,17 +262,21 @@ const FormForm = (props) => {
                 <div>
                     <label htmlFor='program' className='form-check-label mt-3'>Educational Program</label>
                     <br />
-                    <small>Preschool | Gradeschool | Junior Highschool | Senior Highschool</small>
-                    <input
-                        className='form-control  mt-1'
-                        style={(program === '' || /^\s*$/.test(program)) ? { borderColor: validationStyle } : { borderColor: 'green' }}
-                        type='text'
-                        id='program'
-                        placeholder='Choose one educational program'
-                        value={program}
-                        onChange={handleProgram}
-
-                    />
+                    <div class="mb-3">
+                        <select
+                            class="form-select"
+                            name="program"
+                            id="program"
+                            onChange={handleProgram}
+                            style={program === '' ? { borderColor: validationStyle } : { borderColor: 'green' }}
+                        >
+                            <option value="" selected>Select one</option>
+                            <option value="Preschool">Pre-School</option>
+                            <option value="Gradeschool">Gradeschool</option>
+                            <option value="Junior Highschool">Junior Highschool</option>
+                            <option value="Senior Highschool">Senior Highschool</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div>
