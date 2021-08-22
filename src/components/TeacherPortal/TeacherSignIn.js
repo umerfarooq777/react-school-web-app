@@ -82,6 +82,13 @@ export default function TeacherSignIn() {
 
     const columns = [
         {
+            field: 'date',
+            headerName: 'Date of Registration',
+            width: 250,
+            type: 'date',
+            editable: false,
+        },
+        {
             field: 'id',
             headerName: 'Applicant ID',
             width: 190
@@ -141,6 +148,7 @@ export default function TeacherSignIn() {
 
     const rows = loadedEnrollee.map(meetup => (
         {
+            date: meetup.date,
             id: meetup.id,
             fName: meetup.fName,
             mName: meetup.mName,
@@ -198,13 +206,24 @@ export default function TeacherSignIn() {
             ) : (
                 <div className='teacher-signin'>
                     <div className="d-flex flex-column align-items-center">
-                        <Avatar className={classes.avatar}>
-                        </Avatar>
                         <Typography component="h1" variant="h5">
                             Teacher Portal
                         </Typography>
+                        <Avatar className={classes.avatar} />
+                        <div>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                                onClick={() => logout()}
+                            >
+                                Sign Out
+                            </Button>
+                        </div>
                         <h1>ENROLLEE DATABASE</h1>
-                        <div style={{ height: '80vh', width: '90%' }}>
+                        <div style={{ height: '80vh', width: '90%' }} className="mb-5">
                             <DataGrid
                                 rows={rows}
                                 columns={columns}
@@ -213,18 +232,6 @@ export default function TeacherSignIn() {
                             />
                         </div>
                     </div>
-                    <Container component="main" maxWidth="xs" className="mb-5">
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                            onClick={() => logout()}
-                        >
-                            Sign Out
-                        </Button>
-                    </Container>
                 </div>
             )
         )
