@@ -16,7 +16,7 @@ ReactDOM.render(
   <Auth0Provider
     domain={domain}
     clientId={clientId}
-    redirectUri={window.location.origin}
+    redirectUri='https://react-school-web-app.vercel.app/teacher-portal'
   >
     <BrowserRouter>
       <ScrollToTop />
