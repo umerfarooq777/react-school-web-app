@@ -12,7 +12,9 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { Col, Row, Image } from 'react-bootstrap';
 import JuniorHigh from '../JuniorHighSchool/JuniorHigh';
-
+import SeniorHigh from '../SeniorHigh/SeniorHigh'
+import AcademicTrackStrand from '../AcademicTrackStrand/AcademicTrackStrand';
+import './PreSchool.css';
 function Copyright() {
   return (
     <Container>
@@ -31,7 +33,8 @@ function Copyright() {
           <Image src="#/171x180" thumbnail />
         </Col>
       </Row>
-      <JuniorHigh />
+
+
     </Container>
 
   );
@@ -80,25 +83,29 @@ export default function Album() {
 
       <main>
         {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+        <div>
+          <Container>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Pre-School Education
+              Programs
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              Our solution to continuous learning during these times.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
+
                   <Button variant="contained" color="primary">
-                    Educate Your Children
+                    LEARN more about ESR
                   </Button>
                 </Grid>
 
               </Grid>
+              <br />
+              <hr />
+              <Row><JuniorHigh /></Row>
+              <Row> <SeniorHigh /> </Row>
+              <Row> <AcademicTrackStrand /> </Row>
             </div>
           </Container>
         </div>
@@ -123,29 +130,40 @@ export default function Album() {
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      View
+                      Learn More
                     </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
+                    
                   </CardActions>
                 </Card>
+
               </Grid>
             ))}
+
           </Grid>
+          <div className={classes.root}>
+            <CssBaseline />
+            <Container component="main" className={classes.main} maxWidth="sm">
+
+            </Container>
+            <footer className={classes.footer}>
+              <Container fluid>
+                <Typography variant="body1">Proudly Made By KodeGo Group 1</Typography>
+                <Copyright />
+              </Container>
+            </footer>
+          </div>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          KodeGo Group 1
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
+      {/* Programs */}
+      <Container>
+
+      </Container>
+
+
+
+
+
+      {/* End Programs */}
     </React.Fragment>
   );
 }

@@ -26,11 +26,12 @@ const Navigation = () => {
               <NavLink to='/about'>About us</NavLink>
             </MenuItem>
 
-            <NavDropdown title="Programs" id="collasible-nav-dropdown">
-              <MenuItem className='nav-dropdown'>
-                <NavLink to='/preschool'>Pre-School</NavLink>
+            <MenuItem>
+            <NavLink to='/preschool'>Programs</NavLink>
+
+              
               </MenuItem>
-              <MenuItem className='nav-dropdown'>
+              {/*<MenuItem className='nav-dropdown'>
                 <NavLink to='/gradeschool'>Grade School</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
@@ -38,8 +39,8 @@ const Navigation = () => {
               </MenuItem>
               <MenuItem className='nav-dropdown'>
                 <NavLink to='/senior-highschool'>Senior High School</NavLink>
-              </MenuItem>
-            </NavDropdown>
+              </MenuItem> */}
+            
             <MenuItem>
               <NavLink to='/contact'>Contact us</NavLink>
             </MenuItem>
