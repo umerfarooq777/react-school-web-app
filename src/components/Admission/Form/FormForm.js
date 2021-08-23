@@ -262,15 +262,15 @@ const FormForm = (props) => {
                 <div>
                     <label htmlFor='program' className='form-check-label mt-3'>Educational Program</label>
                     <br />
-                    <div class="mb-3">
+                    <div className="mb-3">
                         <select
-                            class="form-select"
+                            className="form-select"
                             name="program"
                             id="program"
                             onChange={handleProgram}
                             style={program === '' ? { borderColor: validationStyle } : { borderColor: 'green' }}
                         >
-                            <option value="" selected>Select one</option>
+                            <option value="">Select one</option>
                             <option value="Preschool">Pre-School</option>
                             <option value="Gradeschool">Gradeschool</option>
                             <option value="Junior Highschool">Junior Highschool</option>

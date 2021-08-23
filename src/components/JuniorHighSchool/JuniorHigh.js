@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
-import logo from './logo.png';
 import jsh from './jsh.png';
 
 function JuniorHigh() {
