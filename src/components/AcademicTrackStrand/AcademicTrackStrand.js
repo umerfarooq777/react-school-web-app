@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import './AcademicTrackStrand.css';
 import softwaredev from './softwaredev.png';
 import Image from 'react-bootstrap/Image';
-import Card from 'react-bootstrap/Card';
 
 function AcademicTrackStrand() {
   return(
