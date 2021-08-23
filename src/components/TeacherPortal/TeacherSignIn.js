@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import "./TeacherSignIn.css";
 import { DataGrid } from '@material-ui/data-grid';
+import { Card, Col, Nav, Row, Tab } from 'react-bootstrap';
 
 // TODO: Need to use ^^ css to have background image pwede na bing background image
 function Copyright() {
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        maxWidth: '25%'
     },
 }));
 
@@ -58,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TeacherSignIn() {
     // Fetch
     const [loadedEnrollee, setLoadedEnrollee] = useState([]);
+    const [loadedContact, setLoadedContact] = useState([]);
 
     useEffect(() => {
         fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/enrollee.json'
@@ -76,6 +79,24 @@ export default function TeacherSignIn() {
                 meetups.push(meetup)
             }
             setLoadedEnrollee(meetups);
+        });
+
+        fetch('https://react-getting-started-b6430-default-rtdb.asia-southeast1.firebasedatabase.app/inquiry.json'
+        ).then(response => {
+            return response.json();
+        }).then(data => {
+
+            const contacts = [];
+
+            for (const Contactkey in data) {
+                const contact = {
+                    id: Contactkey,
+                    ...data[Contactkey]
+                };
+
+                contacts.push(contact)
+            }
+            setLoadedContact(contacts);
         });
 
     }, []);
@@ -164,11 +185,9 @@ export default function TeacherSignIn() {
     const classes = useStyles();
     const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
 
-    if (isLoading) return <h1 className="text-center">Fetching Database...</h1>
+    if (isLoading) return <h1 className="text-center teacher-signin" style={{ position: 'absolute', top: '150px', zIndex: '99' }}>Fetching Database...</h1>
 
     return (
-
-
 
         !isAuthenticated ? (
             <div className='teacher-signin'>
@@ -199,41 +218,74 @@ export default function TeacherSignIn() {
             </div>
         ) : (
 
-            isLoading ? (
-                <section>
-                    <p>Loading...</p>
-                </section>
-            ) : (
-                <div className='teacher-signin'>
-                    <div className="d-flex flex-column align-items-center">
-                        <Typography component="h1" variant="h5">
-                            Teacher Portal
-                        </Typography>
-                        <Avatar className={classes.avatar} />
-                        <div>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                                onClick={() => logout()}
-                            >
-                                Sign Out
-                            </Button>
-                        </div>
-                        <h1>ENROLLEE DATABASE</h1>
-                        <div style={{ height: '80vh', width: '90%' }} className="mb-5">
-                            <DataGrid
-                                rows={rows}
-                                columns={columns}
-                                checkboxSelection
-                                disableSelectionOnClick
-                            />
-                        </div>
+            <div className='teacher-signin'>
+                <div className='w-100 text-center d-flex flex-column align-items-center mb-5'>
+                    <Typography component="h1" variant="h5">
+                        Teacher Portal
+                    </Typography>
+                    <Avatar className='bg-success my-2' />
+                    <div>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="secondary"
+                            className=''
+                            onClick={() => logout()}
+                        >
+                            Sign Out
+                        </Button>
                     </div>
                 </div>
-            )
+
+                <Tab.Container id="left-tabs-example" defaultActiveKey="first" style={{ width: "100%" }}>
+                    <Row>
+                        <Col md={1}>
+                            <Nav variant="pills" className="flex-column text-white">
+                                <Nav.Item>
+                                    <Nav.Link eventKey="first" className="bg-success mb-1">Enrollee</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="second" className="bg-success mb-1">Inquiry</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                        </Col>
+                        <Col md={11}>
+                            <Tab.Content>
+                                <Tab.Pane eventKey="first">
+                                    <div className="d-flex flex-column align-items-center">
+                                        <h1>ENROLLEE DATABASE</h1>
+                                        <div style={{ height: '80vh', width: '95%' }} className="mb-5">
+                                            <DataGrid
+                                                rows={rows}
+                                                columns={columns}
+                                                checkboxSelection
+                                                disableSelectionOnClick
+                                            />
+                                        </div>
+                                    </div>
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="second">
+                                    <div className="d-flex flex-column align-items-center">
+                                        <h1>INQUIRY DATABASE</h1>
+                                        <div style={{ height: '80vh', width: '95%' }} className="mb-5">
+                                            {loadedContact.map(contact => (
+                                                <Card className='p-2'>
+                                                    <h4>From: {contact.Name}</h4>
+                                                    <h6>@: <a href={`mailto:${contact.Email}`}>{contact.Email}</a></h6>
+                                                    <div>Message: {contact.Message}</div>
+                                                </Card>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </Tab.Pane>
+                            </Tab.Content>
+                        </Col>
+                    </Row>
+                </Tab.Container>
+
+            </div>
+
         )
     );
 }

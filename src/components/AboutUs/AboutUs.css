@@ -3,11 +3,7 @@
 }
 
 .about-us .carousel-inner {
-    background-color: transparent;
-}
-
-.about-us .carousel-item {
-    position: relative;
+    background-color: rgba(66, 186, 150, 0.2);
 }
 
 .about-us .carousel-item img {
