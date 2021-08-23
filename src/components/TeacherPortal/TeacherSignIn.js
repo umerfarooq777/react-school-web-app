@@ -270,6 +270,7 @@ export default function TeacherSignIn() {
                                         <div style={{ height: '80vh', width: '95%' }} className="mb-5">
                                             {loadedContact.map(contact => (
                                                 <Card className='p-2'>
+                                                    <h5>Inquiry ID: {contact.id}</h5>
                                                     <h4>From: {contact.Name}</h4>
                                                     <h6>@: <a href={`mailto:${contact.Email}`}>{contact.Email}</a></h6>
                                                     <div>Message: {contact.Message}</div>
