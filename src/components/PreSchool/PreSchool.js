@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#198754",
     padding: theme.spacing(6),
   },
 }));
@@ -85,7 +85,7 @@ export default function Album() {
         {/* Hero unit */}
         <div>
           <Container>
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom my="11">
               Programs
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
@@ -140,6 +140,34 @@ export default function Album() {
             ))}
 
           </Grid>
+          
+          <div> <footer className={classes.footer}> 
+          <Container fluid> KodeGo Group 1
+          <div className='col-lg-12'>
+          <a href='https://www.facebook.com/'><i className="fab fa-facebook mx-1 text-black "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-twitter mx-1 text-black "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-youtube mx-1 text-black "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-instagram mx-1 text-black "></i></a>
+        </div>
+        
+        <Row>
+        <div className='col-lg-12 text-black'>
+          <small>2021 &copy; Escuela De Sto Rosafrio </small>
+        </div>
+        </Row>
+        <Row> 
+        <div className='col-lg-12 text-black'>
+          Dr. Sixto Antonio Ave., Pasig, Metro Manila, Philippines
+         </div>
+         </Row>
+        
+
+
+       
+        
+        </Container>
+          </footer>
+          
           {/*<div className={classes.root}>
             <CssBaseline />
             <Container component="main" className={classes.main} maxWidth="sm">
@@ -152,6 +180,8 @@ export default function Album() {
               </Container>
             </footer>
           </div>*/}
+          
+          </div>
         </Container>
       </main>
       {/* Programs */}
