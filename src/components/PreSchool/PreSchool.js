@@ -140,7 +140,7 @@ export default function Album() {
             ))}
 
           </Grid>
-          <div className={classes.root}>
+          {/*<div className={classes.root}>
             <CssBaseline />
             <Container component="main" className={classes.main} maxWidth="sm">
 
@@ -151,7 +151,7 @@ export default function Album() {
                 <Copyright />
               </Container>
             </footer>
-          </div>
+          </div>*/}
         </Container>
       </main>
       {/* Programs */}
