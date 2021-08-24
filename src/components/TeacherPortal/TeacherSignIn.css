@@ -1,12 +1,12 @@
-.nav-item a {
+.teacher-nav .nav-item a {
     color:white;
 }
 
-.nav-item a:active {
+.teacher-nav .nav-item a:active {
     color:white !important;
 }
 
-.nav-item a:hover {
+.teacher-nav .nav-item a:hover {
     color:white !important;
     border-color: #198754 !important;
     background-color: #198754aa !important;

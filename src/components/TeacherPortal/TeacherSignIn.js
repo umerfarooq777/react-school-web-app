@@ -240,7 +240,7 @@ export default function TeacherSignIn() {
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" style={{ width: "100%" }}>
                     <Row>
                         <Col md={1}>
-                            <Nav variant="pills" className="flex-column text-white">
+                            <Nav variant="pills" className="flex-column text-white teacher-nav">
                                 <Nav.Item>
                                     <Nav.Link eventKey="first" className="bg-success mb-1">Enrollee</Nav.Link>
                                 </Nav.Item>
