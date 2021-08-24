@@ -70,7 +70,7 @@ export default function StudentSignIn({ handleLogin }) {
                     </Typography>
                     <form
                         className={classes.form}
-                        onSubmit = {handleLogin}
+                        onSubmit={handleLogin}
                     >
                         <TextField
                             variant="outlined"

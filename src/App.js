@@ -52,9 +52,13 @@ function App() {
             <Route path="/student-portal">
               {isUnauthorized
                 ?
-                <StudentSignIn handleLogin={handleLogin} />
+                <StudentSignIn
+                  handleLogin={handleLogin}
+                />
                 :
-                <AuthorizedStudent handleLogout={handleLogout} />
+                <AuthorizedStudent
+                  handleLogout={handleLogout}
+                />
               }
             </Route>
             <Route path="/teacher-portal" component={TeacherSignIn} />
