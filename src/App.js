@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Navigation from "./components/Navigation/Navigation";
@@ -11,6 +12,8 @@ import UnderDevelopment from "./components/ExtraPages/UnderDevelopment";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Admission from "./components/Admission/Admission";
 import Album from './components/PreSchool/PreSchool';
+import StudentSignIn from "./components/StudentPortal/StudentSignIn";
+import AuthorizedStudent from "./components/StudentPortal/AuthorizedStudent";
 
 
 
@@ -18,6 +21,19 @@ import Album from './components/PreSchool/PreSchool';
 function App() {
 
   const location = useLocation();
+
+  const [isUnauthorized, setIsUnauthorized] = useState(true);
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setIsUnauthorized(false)
+  }
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setIsUnauthorized(true);
+  }
 
   return (
     <>
@@ -33,6 +49,14 @@ function App() {
             <Route path="/about" component={AboutUs} />
             <Route path="/preschool" component={Album} />
             <Route path="/contact" component={ContactUs} />
+            <Route path="/student-portal">
+              {isUnauthorized
+                ?
+                <StudentSignIn handleLogin={handleLogin} />
+                :
+                <AuthorizedStudent handleLogout={handleLogout} />
+              }
+            </Route>
             <Route path="/teacher-portal" component={TeacherSignIn} />
             {/* FOR FUTURE DEVELOPMENT */}
             <Route path="/gradeschool" component={UnderDevelopment} />
