@@ -19,12 +19,13 @@ const AboutUs = () => {
           </div>
           <div className='col-md-9 p-2'>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quam
-              laborum id consequatur quasi itaque, doloribus perspiciatis
-              voluptatum veniam quidem beatae dolore, officiis quos sint fugiat!
-              Corrupti, earum ipsum dicta officia cum, quo laudantium, architecto
-              quis molestiae maxime enim tempore aliquam. Qui magni accusamus,
-              doloribus ad laudantium amet numquam excepturi?
+            Welcome to Escuela de Sto. Rosario!
+
+The fast growing, competitive private school in Rosario, Pasig City, Philippines.
+ 
+"Equipping the young minds of today with the tools of tomorrow."
+
+
             </p>
           </div>
         </Row>
@@ -38,7 +39,7 @@ const AboutUs = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg
+            "Education is the most powerful you can use to change the world"
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -49,7 +50,7 @@ const AboutUs = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg
+            Choose the online learning program that fits you. Enroll now!
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -60,7 +61,7 @@ const AboutUs = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg
+             choose the STEM strand and take part in creating the future.
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -72,13 +73,16 @@ const AboutUs = () => {
         <Row>
           <div className='col-md-6'>
             <Row className='w-100'>
-              <h2>Our Vision</h2>
-              <h5>To be the school of choice for real-world learning in every community.</h5>
+              <h2>Our History</h2>
+              <p>Escuela de Sto. Rosario began, as a Nursery and Kindergarten School in 2001, it was a transition of Rosario Child and Youth Development Center (RCYDC) since 1969 to an authorized youth and development center with pre-elementary course by Department of Education (Dep Ed). Enrolment was big in 2001 with almost three hundred students that comprises the Nursery, Kinder I, Kinder II and Grade 1. Today, the school housed in a five-storey building with 16 fully air-conditioned spacious classrooms, air-conditioned library, a canteen, a clinic, a computer room, TLE room, faculty room, a science laboratory,a basketball court and administrative, registrar/cashier offices with almost one thousand students and fifty competitive admistrative, teaching personels and staff.
+ </p>
             </Row>
-            <Row>
-              <h2>Our Mission</h2>
-              <h5>To transform lives through accessible and innovative education.</h5>
-            </Row>
+            <Row> 
+            <p>
+            Recently, another extension building was built to house the growing number of the grade school department with same facilities including fully air-conditioned classrooms.
+ 
+The ESR Pre-school, Grade School and High School levels are all DEPED recognized and with permit to accept foreign students coming from the Beaureu of Immigration. ESR is also a proud and active member of the Pasig Private Schools Association (PAPRISA).</p></Row>
+            
           </div>
           <div className='col-md-6 text-center'>
             <Image
@@ -90,7 +94,7 @@ const AboutUs = () => {
           </div>
         </Row>
       </Container>
-      <div>Testing</div>
+      
 
       <Card.Footer className="text bg-success text-center">
         <div className='col-lg-12 text-white'>
