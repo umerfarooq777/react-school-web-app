@@ -27,20 +27,9 @@ const Navigation = () => {
             </MenuItem>
 
             <MenuItem>
-            <NavLink to='/preschool'>Programs</NavLink>
+              <NavLink to='/preschool'>Programs</NavLink>
+            </MenuItem>
 
-              
-              </MenuItem>
-              {/*<MenuItem className='nav-dropdown'>
-                <NavLink to='/gradeschool'>Grade School</NavLink>
-              </MenuItem>
-              <MenuItem className='nav-dropdown'>
-                <NavLink to='/junior-highschool'>Junior High School</NavLink>
-              </MenuItem>
-              <MenuItem className='nav-dropdown'>
-                <NavLink to='/senior-highschool'>Senior High School</NavLink>
-              </MenuItem> */}
-            
             <MenuItem>
               <NavLink to='/contact'>Contact us</NavLink>
             </MenuItem>
@@ -52,9 +41,7 @@ const Navigation = () => {
                 <NavLink to='/teacher-portal'>Teacher Portal</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
-                <a href='https://semantic-ui.com/examples/login.html' target='_blank' rel='noreferrer'>
-                  Student Portal
-                </a>
+                <NavLink to='/student-portal'>Student Portal</NavLink>
               </MenuItem>
               <MenuItem className='nav-dropdown'>
                 <NavLink to='/admission'>Admission</NavLink>

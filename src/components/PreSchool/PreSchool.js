@@ -84,8 +84,13 @@ export default function Album() {
       <main>
         {/* Hero unit */}
         <div>
+ 
           <Container>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom my="11">
+
+          <Container style={{marginTop: '70px'}}>
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+
               Programs
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
