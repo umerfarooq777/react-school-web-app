@@ -9,36 +9,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import { Col, Row, Image } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import JuniorHigh from '../JuniorHighSchool/JuniorHigh';
 import SeniorHigh from '../SeniorHigh/SeniorHigh'
 import AcademicTrackStrand from '../AcademicTrackStrand/AcademicTrackStrand';
 import './PreSchool.css';
-function Copyright() {
-  return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col xs={6}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-              Escuela De Sto Rosario
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-          </Typography>
-        </Col>
-        <Col xs={6}>
-          <Image src="#/171x180" thumbnail />
-        </Col>
-      </Row>
-
-
-    </Container>
-
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -67,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#198754",
     padding: theme.spacing(6),
   },
 }));
@@ -84,8 +59,15 @@ export default function Album() {
       <main>
         {/* Hero unit */}
         <div>
+ 
+          <Container>
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom my="11">
+            </Typography>
+          </Container>
+
           <Container style={{marginTop: '70px'}}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+
               Programs
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
@@ -140,17 +122,35 @@ export default function Album() {
             ))}
 
           </Grid>
-          <div className={classes.root}>
-            <CssBaseline />
-            <Container component="main" className={classes.main} maxWidth="sm">
+          
+          <div> <footer className={classes.footer}> 
+          <Container fluid> KodeGo Group 1
+          <div className='col-lg-12'>
+          <a href='https://www.facebook.com/'><i className="fab fa-facebook mx-1 text-black "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-twitter mx-1 text-black "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-youtube mx-1 text-black "></i></a>
+          <a href='https://www.facebook.com/'><i className="fab fa-instagram mx-1 text-black "></i></a>
+        </div>
+        
+        <Row>
+        <div className='col-lg-12 text-black'>
+          <small>2021 &copy; Escuela De Sto Rosafrio </small>
+        </div>
+        </Row>
+        <Row> 
+        <div className='col-lg-12 text-black'>
+          Dr. Sixto Antonio Ave., Pasig, Metro Manila, Philippines
+         </div>
+         </Row>
+        
 
-            </Container>
-            <footer className={classes.footer}>
-              <Container fluid>
-                <Typography variant="body1">Proudly Made By KodeGo Group 1</Typography>
-                <Copyright />
-              </Container>
-            </footer>
+
+       
+        
+        </Container>
+          </footer>
+          
+         
           </div>
         </Container>
       </main>

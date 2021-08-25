@@ -2,37 +2,39 @@ import React from "react";
 import HeroCarousel from "react-hero-carousel";
 import { Card, Container, Row, Image } from "react-bootstrap";
 import './Home.css';
-
+import esrimg from './esrimg1.jpg';
+import esrimg2 from './esrimg2.jpg';
+import esrimg3 from './esrbannerinfo.jpg';
 const Home = () => {
   return (
     <div className='home'>
       <HeroCarousel>
         <img
-          src="https://wallpaperaccess.com/full/776480.jpg"
+          src={esrimg}
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
           }}
-          alt='1'
+          alt='A boy having fun study'
         />
         <img
-          src="https://wallpaperaccess.com/full/776481.jpg"
+          src={esrimg2}
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
           }}
-          alt='1'
+          alt='A girl pursuing programming'
         />
         <img
-          src="https://wallpaperaccess.com/full/776483.jpg"
+          src={esrimg3}
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
           }}
-          alt='1'
+          alt='Strong'
         />
       </HeroCarousel>
 
@@ -47,12 +49,7 @@ const Home = () => {
           </div>
           <div className='col-md-9 p-1'>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quam
-              laborum id consequatur quasi itaque, doloribus perspiciatis
-              voluptatum veniam quidem beatae dolore, officiis quos sint fugiat!
-              Corrupti, earum ipsum dicta officia cum, quo laudantium, architecto
-              quis molestiae maxime enim tempore aliquam. Qui magni accusamus,
-              doloribus ad laudantium amet numquam excepturi?
+              Escuela De Sto Rosario has long been regarded as one of the top schools in Pasig City and aims to be a affordable private school of choice for Filipino Families. ESR graduates are equipped with work-ready skills. ESR also conducts upskilling acitivites on work and professional development among Senior High School students.
             </p>
           </div>
         </Row>
