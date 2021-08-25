@@ -9,36 +9,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import { Col, Row, Image } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import JuniorHigh from '../JuniorHighSchool/JuniorHigh';
 import SeniorHigh from '../SeniorHigh/SeniorHigh'
 import AcademicTrackStrand from '../AcademicTrackStrand/AcademicTrackStrand';
 import './PreSchool.css';
-function Copyright() {
-  return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col xs={6}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-              Escuela De Sto Rosario
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-          </Typography>
-        </Col>
-        <Col xs={6}>
-          <Image src="#/171x180" thumbnail />
-        </Col>
-      </Row>
-
-
-    </Container>
-
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -87,6 +62,8 @@ export default function Album() {
  
           <Container>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom my="11">
+            </Typography>
+          </Container>
 
           <Container style={{marginTop: '70px'}}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
@@ -173,19 +150,7 @@ export default function Album() {
         </Container>
           </footer>
           
-          {/*<div className={classes.root}>
-            <CssBaseline />
-            <Container component="main" className={classes.main} maxWidth="sm">
-
-            </Container>
-            <footer className={classes.footer}>
-              <Container fluid>
-                <Typography variant="body1">Proudly Made By KodeGo Group 1</Typography>
-                <Copyright />
-              </Container>
-            </footer>
-          </div>*/}
-          
+         
           </div>
         </Container>
       </main>
