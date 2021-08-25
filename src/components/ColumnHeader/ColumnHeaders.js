@@ -5,18 +5,21 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import book from './book.png';
+import employability from  './employability.png';
+import reading from './reading.png';
+
 const HeaderColumn = () => {
     return (
         <Container>
             <Row>
                 <Col lg={4}>
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant='top' src='holder.js/100px180' />
+                        <Card.Img variant='top' src={employability} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
+                            <Card.Title>Employability</Card.Title>
                             <Card.Text>
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
+                                With our Accelerated Career Experience, the students are immersed into the real working environment
                             </Card.Text>
                             <Button variant='primary'>Go somewhere</Button>
                         </Card.Body>
@@ -24,12 +27,11 @@ const HeaderColumn = () => {
                 </Col>
                 <Col lg={4}>
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant='top' src='holder.js/100px180' />
+                        <Card.Img variant='top' src={book} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
+                            <Card.Title>College-Ready</Card.Title>
                             <Card.Text>
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
+                                Through the ABM and STEM strands, our students are better geared for higher education
                             </Card.Text>
                             <Button variant='primary'>Go somewhere</Button>
                         </Card.Body>
@@ -37,12 +39,11 @@ const HeaderColumn = () => {
                 </Col>
                 <Col lg={4}>
                     <Card style={{ width: '18rem' }}>
-                        <Card.Img variant='top' src='holder.js/100px180' />
+                        <Card.Img variant='top' src={reading} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
+                            <Card.Title>Online-Learning Ready</Card.Title>
                             <Card.Text>
-                                Some quick example text to build on the card title and make up
-                                the bulk of the card's content.
+                                Learner-centered education through collaborative and experiential activities
                             </Card.Text>
                             <Button variant='primary'>Go somewhere</Button>
                         </Card.Body>

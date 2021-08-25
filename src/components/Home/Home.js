@@ -64,11 +64,14 @@ const Home = () => {
           <div className='col-md-6'>
             <Row className='w-100'>
               <h2>Our Vision</h2>
-              <h5>To be the school of choice for real-world learning in every community.</h5>
+              <h5>To train and educate the children regardless of their religious affiliation in response to the needs of time; hence Sto. Rosarian Education envisions integrated Moral and Family Values, Social Commitment, Spiritual and Physical growth, and in line with the development of Information Technology to become a better citizen of our Nation. </h5>
             </Row>
             <Row>
               <h2>Our Mission</h2>
-              <h5>To transform lives through accessible and innovative education.</h5>
+              <h5>To realize this vision, we commit ourselves to:
+The persuit of excelence and social relevant early childhood education; the recognition of the uniqueness and the potential of each individual; the inculcation of social awareness and responsibility; the promotion of Christian spirits in the context of global family continuous spiritual and moral conversation.
+ 
+We continously strive to create an environment sustained by quality curricular and co-curricular education program with the student at a core, enliven by dedicated administrators, faculties and staff, supported by the involved parents, and equipped with adequate facilities. </h5>
             </Row>
           </div>
           <div className='col-md-6 text-center'>
